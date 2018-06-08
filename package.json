@@ -1,0 +1,12 @@
+{
+  "name": "node-couchdb-ngix",
+  "version": "1.0.0",
+  "description": "A API with node and CouchDB with a Front End hosted with NGIX",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "cd web && npm install",
+    "postinstall": "cd server && npm install"
+  },
+  "author": "Thadeu Cotts <thadeu.cotts@gmail.com> (https://thadeucotts.com/)",
+  "license": "MIT"
+}
