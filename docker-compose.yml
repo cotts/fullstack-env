@@ -7,9 +7,13 @@ services:
       - '5984:5984'
     volumes:
       - ./database/db:/opt/couchdb/data
-  app:
-    image: 'node:9.0'
+  server:
     container_name: server
+    build:
+      context: ./server
+      dockerfile: server.dockerfile
+    volumes:
+      - ./server:/usr/src/app
     ports:
       - '3000:3000'
     links:
