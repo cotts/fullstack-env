@@ -1,3 +1,14 @@
 extends: airbnb-base
 plugins:
   - import
+env: 
+  node: true
+rules:
+  no-shadow: off
+  import/no-dynamic-require: off
+  global-require: off
+  no-param-reassign: off
+  consistent-return: off
+  arrow-body-style: off
+  no-underscore-dangle: off
+  import/extensions: off
