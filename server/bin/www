@@ -1,1 +1,28 @@
-console.log('teste');
+#!/usr/bin/env node
+
+const { logger, Env, database } = require('../src/config');
+const debug = require('../src/config/debug')('bin:www');
+const app = require('../src');
+
+debug('Staring HTTP Instance');
+
+const start = () => new Promise(async (resolve, reject) => {
+  try {
+    const instance = await app();
+
+    instance.listen(Env.PORT, (err) => {
+      if (err) return reject(err);
+      resolve(instance);
+    })
+      .on('error', reject);
+  } catch (err) {
+    reject(err);
+  }
+});
+
+start()
+  .then(() => logger.info(`Diaper API running on port ${Env.PORT}`))
+  .catch((err) => {
+    logger.error(`API Crashed: ${err}`);
+    process.exit(1);
+  });
