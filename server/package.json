@@ -4,14 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "author": "Thadeu Cotts <thadeu.cotts@gmail.com> (https://thadeucotts.com/)",
   "license": "MIT",
   "dependencies": {
+    "agentkeepalive": "^3.4.1",
+    "body-parser": "^1.18.3",
     "debug": "^3.1.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "helmet": "^3.12.1",
+    "joi": "^13.4.0",
+    "moment": "^2.22.2",
+    "nano": "^6.4.4",
+    "nodemon": "^1.17.5",
+    "split": "^1.0.1",
     "winston": "^2.4.2"
   },
   "devDependencies": {

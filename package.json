@@ -1,7 +1,7 @@
 {
-  "name": "node-couchdb-ngix",
+  "name": "node-couchdb-nginx",
   "version": "1.0.0",
-  "description": "A API with node and CouchDB with a Front End hosted with NGIX",
+  "description": "A API with node and CouchDB with a Front End hosted with NGINX",
   "main": "index.js",
   "scripts": {
     "preinstall": "cd web && npm install",
