@@ -1,12 +1,19 @@
 version: '3'
 services:
   database: 
-    image: 'apache/couchdb:2.1'
+    image: 'couchdb:2.1'
     container_name: database
+    build:
+      context: ./database
+      dockerfile: database.dockerfile
     ports:
       - '5984:5984'
+    networks: 
+      - main-network
     volumes:
       - ./database/db:/opt/couchdb/data
+      # - ./database/config:/opt/couchdb/etc/local.d
+  
   server:
     container_name: server
     build:
@@ -14,9 +21,14 @@ services:
       dockerfile: server.dockerfile
     volumes:
       - ./server:/usr/src/app
-    ports:
-      - '3000:3000'
     links:
       - database
+    ports:
+      - '3000:3000'
+    networks: 
+      - main-network
     depends_on:
       - database
+networks:
+  main-network:
+    driver: bridge
