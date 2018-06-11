@@ -12,6 +12,8 @@ services:
       - main-network
     volumes:
       - ./database/db:/opt/couchdb/data
+      # - ./database/config:/opt/couchdb/etc
+
   nginx:
     build:
         dockerfile: web.dockerfile
