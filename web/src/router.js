@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './components/Home';
 import List from './components/List';
 import Diaper from './components/Diaper';
+import Delete from './components/Delete';
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ const router = new Router({
       path: '/diaper/:id',
       name: 'Edit Diaper',
       component: Diaper,
+    },
+    {
+      path: '/delete',
+      name: 'Delete Diaper',
+      component: Delete,
     },
   ],
 });
