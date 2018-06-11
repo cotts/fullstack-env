@@ -47,13 +47,13 @@ const DiaperService = {
   delete: (req, res) => {
     database.insert(
       {
-        _id: req.body.doc._id,
-        _rev: req.body.doc._rev,
-        name: req.body.doc.name,
-        description: req.body.doc.description,
-        sizes: [req.body.doc.sizes],
-        available: false,
-        purchased: [req.body.doc.purchased],
+        _id: req.body._id,
+        _rev: req.body._rev,
+        name: req.body.name,
+        description: req.body.description,
+        sizes: req.body.sizes,
+        available: req.body.available,
+        purchased: req.body.purchased,
       },
       (err, body) => (err ? res.send(err) : res.send(body)),
     );
