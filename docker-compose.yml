@@ -12,8 +12,18 @@ services:
       - main-network
     volumes:
       - ./database/db:/opt/couchdb/data
-      # - ./database/config:/opt/couchdb/etc/local.d
-  
+  nginx:
+    build:
+        dockerfile: web.dockerfile
+        context: ./web
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./web:/var/www/public
+    ports:
+        - "80:80"
+    networks: 
+        - main-network
   server:
     container_name: server
     build:
