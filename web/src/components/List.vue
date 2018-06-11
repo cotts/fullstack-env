@@ -1,7 +1,10 @@
 <template>
   <div class="list">
    <ul class="list-group">
-     <li v-for="diaper of list" class="list-group-item list-group-item-action flex-column align-items-start">
+     <li class="list-group-item list-group-item-action flex-column align-items-start"
+      v-for="(diaper, id) of list"
+      :key="id"
+      v-show="diaper.doc.available">
        <router-link :to="{ name: 'Edit Diaper', params: { id: diaper.id}}">
        <h3>{{diaper.doc.name}}</h3>
        <h4>{{ diaper.doc.description }}</h4>
@@ -9,7 +12,7 @@
              Sizes
              </h5>
          <div class="list-sizes">
-           <div v-for="size in diaper.doc.sizes">
+           <div v-for="(size, index) in diaper.doc.sizes" :key="index">
              <h5>{{ size.size }} <span class="badge badge-info"> {{ size.amount }}</span></h5>
            </div>
          </div>
