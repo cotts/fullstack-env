@@ -11,16 +11,22 @@ const myAgent = new AgentKeepAlive({
 
 const nano = require('nano')({ url: Env.DATABASE, requestDefaults: { agent: myAgent } });
 
-nano.auth('dbadmin', 'C0uchd4t4', (err, body, headers) => {
-  if (err) {
-    logger.error(err);
-    return;
-  }
-  if (headers && headers['set-cookie']) {
-    cookies.dbadmin = headers['set-cookie'];
-    logger.info('Database Connected');
-  }
-});
+const dbConnect = () => {
+  logger.info('Trying to connect to database');
+  nano.auth('dbadmin', 'C0uchd4t4', (err, body, headers) => {
+    if (err) {
+      logger.error(err);
+      logger.warn('Reconnecting ...');
+      setTimeout(() => dbConnect(), 3000);
+    }
+    if (headers && headers['set-cookie']) {
+      cookies.dbadmin = headers['set-cookie'];
+      logger.info('Database Connected');
+    }
+  });
+};
+
+dbConnect();
 
 const db = nano.use('diapers');
 
