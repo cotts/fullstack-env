@@ -1,21 +1,8 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div id="app" class="container-fluid">
+    <h1 class="app-title">Diaper Manager</h1>
+   <router-view />
+   <button class="btn btn-dark btn-back" @click="goBack">Back</button>
   </div>
 </template>
 
@@ -23,38 +10,43 @@
 export default {
   name: 'app',
   data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+    return {}
+  },
+  methods: {
+    goBack: function() {
+        this.$router.go(-1);
+      },
   }
 }
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: 'Lato', sans-serif;
+}
+html,
+.container-fluid {
+  background-color: #f2f7fd;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
 }
 
 li {
-  display: inline-block;
-  margin: 0 10px;
+  list-style-type: none;
 }
 
-a {
-  color: #42b983;
+a,
+a:active,
+a:hover,
+a:visited,
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-title {
+  padding: 30px;
+}
+.btn-back {
+  float: right;
+  margin: 50px;
 }
 </style>
