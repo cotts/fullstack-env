@@ -30,7 +30,7 @@ export default {
     toggleAvailable: function(object){
       console.log(object);
        axios({
-          method: 'put',
+          method: 'delete',
           url: 'http://localhost:3000/api/v1/diapers',
           data: object
           });
