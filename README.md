@@ -54,5 +54,7 @@ docker logs -f <container-name>
 * The webview is a SPA.
 * DB user and password are stored in /database/confg/local.ini 
 * Node.JS is using a structure to be scalable, splited by feature
+* First install install the dependencies from the server and web directories
+* To enter in dev mode for the view, enter in /web and read instructions
 * Missing documentation
 
