@@ -28,6 +28,10 @@ const dbConnect = () => {
 
 dbConnect();
 
-const db = nano.use('diapers');
+const dbDiapers = nano.use('diapers');
+const dbBuy = nano.use('buyorder');
 
-module.exports = db;
+module.exports = {
+  dbDiapers,
+  dbBuy,
+};
