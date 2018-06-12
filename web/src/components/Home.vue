@@ -6,7 +6,7 @@
     <router-link to="/list">
       <button class="btn btn-primary btn-lg">List Diapers</button>
     </router-link>
-    <router-link to="/buy">
+    <router-link to="/shopping">
       <button class="btn btn-success btn-lg">Buy Diapers</button>
     </router-link>
        <router-link to="/delete">
