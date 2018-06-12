@@ -4,6 +4,7 @@ const BuyService = require('./buy.service');
 debug('Buy Controller');
 
 const BuyController = {
+  list: BuyService.listBuys,
   buy: BuyService.buyItem,
 };
 

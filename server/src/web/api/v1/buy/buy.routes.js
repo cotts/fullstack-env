@@ -4,6 +4,6 @@ const BuyController = require('./buy.controller');
 
 debug('Buy Routes');
 
-router.post('/buy', BuyController.buy);
+router.get('/buy', BuyController.list).post('/buy', BuyController.buy);
 
 module.exports = router;
