@@ -8,10 +8,6 @@ const DiaperModel = Joi.object().keys({
     amount: Joi.number(),
   })),
   available: Joi.boolean(),
-  purchased: Joi.array().items(Joi.object({
-    quantity: Joi.string(),
-    date: Joi.date(),
-  })),
 });
 
 module.exports = DiaperModel;

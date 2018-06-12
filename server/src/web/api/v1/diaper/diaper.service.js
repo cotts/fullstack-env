@@ -5,15 +5,17 @@ const { logger, database } = require('../../../../config');
 
 debug('Diaper Service');
 
+const db = database.dbDiapers;
+
 const DiaperService = {
   list: (req, res) =>
-    database.list(
+    db.list(
       { include_docs: true },
-      (err, body) => (err ? res.send(err) : res.send(body.rows.map(index => index))),
+      (err, body) => (err ? res.send(err) : res.send(body.rows.map(index => index.doc))),
     ),
 
   getById: (req, res) => {
-    database.get(
+    db.get(
       req.params.id,
       { include_docs: true },
       (err, body) => (err ? res.send(err) : res.send(body)),
@@ -26,11 +28,11 @@ const DiaperService = {
         logger.warn(err);
         res.send(err);
       }
-      database.insert(req.body, (err, body) => (err ? res.send(err) : res.send(body)));
+      db.insert(req.body, (err, body) => (err ? res.send(err) : res.send(body)));
     });
   },
   update: (req, res) => {
-    database.insert(
+    db.insert(
       {
         _id: req.body._id,
         _rev: req.body._rev,
@@ -38,14 +40,13 @@ const DiaperService = {
         description: req.body.description,
         sizes: req.body.sizes,
         available: req.body.available,
-        purchased: req.body.purchased,
       },
       (err, body) => (err ? res.send(err) : res.send(body)),
     );
   },
 
   delete: (req, res) => {
-    database.insert(
+    db.insert(
       {
         _id: req.body._id,
         _rev: req.body._rev,
@@ -53,7 +54,6 @@ const DiaperService = {
         description: req.body.description,
         sizes: req.body.sizes,
         available: req.body.available,
-        purchased: req.body.purchased,
       },
       (err, body) => (err ? res.send(err) : res.send(body)),
     );
