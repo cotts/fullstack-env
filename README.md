@@ -1,6 +1,6 @@
 # Full Stack env
 
-## A Webapp using Node, CouchDB, Nginx and Vue
+## A Webapp build with Full Stack Environment using Node, CouchDB, Nginx and Vue
 
 `Tecnologies used:`
  - Docker
